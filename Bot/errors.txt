@@ -1,0 +1,38 @@
+﻿System.InvalidOperationException: Collection was modified; enumeration operation
+ might not execute.
+   at System.Data.RBTree`1.RBTreeEnumerator.MoveNext()
+   at System.Linq.Enumerable.<CastIterator>d__b1`1.MoveNext()
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at BotFair.BusinessLayer.BetEngine.BetEngine.GetPriceTrack(Int32 marketId) in
+ d:\dropbox\programming\src\botfair2\BotFair.BusinessLayer\BetEngine\BetEngine.c
+s:line 99
+   at BotFair.BusinessLayer.BetEngine.BetEngine.Run() in d:\dropbox\programming\
+src\botfair2\BotFair.BusinessLayer\BetEngine\BetEngine.cs:line 45
+   at BotFair.Program.RunThread(Object parameters) in d:\dropbox\programming\src
+\botfair2\Bot\Program.cs:line 318
+Corrupted Thread; need to shutdown. name=BetEngine
+Shutting down bot...
+bot stopped
+
+
+System.NullReferenceException: Object reference not set to an instance of an obj
+ect.
+   at System.Data.DataTable.RecordStateChanged(Int32 record1, DataViewRowState o
+ldState1, DataViewRowState newState1, Int32 record2, DataViewRowState oldState2,
+ DataViewRowState newState2)
+   at System.Data.DataTable.SetNewRecordWorker(DataRow row, Int32 proposedRecord
+, DataRowAction action, Boolean isInMerge, Boolean suppressEnsurePropertyChanged
+, Int32 position, Boolean fireEvent, Exception& deferredException)
+   at System.Data.DataRow.EndEdit()
+   at System.Data.DataRow.set_Item(DataColumn column, Object value)
+   at BotFair.DataLayer.BotDataSet.MarketsRow.set_eventDate(DateTime value) in d
+:\dropbox\programming\src\botfair2\BotFair.DataLayer\BotDataSet.Designer.cs:line
+ 4225
+   at BotFair.BusinessLayer.Markets.UpdateExistingMarkets_Thread() in d:\dropbox
+\programming\src\botfair2\BotFair.BusinessLayer\Markets.cs:line 124
+   at BotFair.Program.RunThread(Object parameters) in d:\dropbox\programming\src
+\botfair2\Bot\Program.cs:line 317
+Corrupted Thread; need to shutdown. name=MarketUpdater
+

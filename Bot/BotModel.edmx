@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="botfairModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="botfairModelStoreContainer">
+          <EntitySet Name="Bets" EntityType="botfairModel.Store.Bets" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Configuration" EntityType="botfairModel.Store.Configuration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EventTypes" EntityType="botfairModel.Store.EventTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Log" EntityType="botfairModel.Store.Log" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Markets" EntityType="botfairModel.Store.Markets" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PriceTrack" EntityType="botfairModel.Store.PriceTrack" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Selections" EntityType="botfairModel.Store.Selections" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Bets">
+          <Key>
+            <PropertyRef Name="fk_market" />
+            <PropertyRef Name="fk_selection" />
+            <PropertyRef Name="isLay" />
+          </Key>
+          <Property Name="fk_market" Type="int" Nullable="false" />
+          <Property Name="fk_selection" Type="int" Nullable="false" />
+          <Property Name="amount" Type="float" />
+          <Property Name="isLay" Type="bit" Nullable="false" />
+          <Property Name="firstPrice" Type="float" />
+          <Property Name="currentPrice" Type="float" />
+          <Property Name="pricePosted" Type="float" />
+          <Property Name="sizePosted" Type="float" />
+          <Property Name="datePosted" Type="datetime" />
+          <Property Name="errorCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="betFairId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="hotMarketsSeconds" Type="int" Nullable="false" />
+          <Property Name="percentage" Type="float" Nullable="false" />
+          <Property Name="riskValue" Type="int" Nullable="false" />
+          <Property Name="newMarketsPeriod" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventTypes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="message" Type="ntext" />
+          <Property Name="eventId" Type="int" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Markets">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="menuPath" Type="nvarchar" MaxLength="500" />
+          <Property Name="totalAmount" Type="float" />
+          <Property Name="eventDate" Type="datetime" />
+          <Property Name="type" Type="nvarchar" MaxLength="100" />
+          <Property Name="eventType" Type="int" Nullable="false" />
+          <Property Name="eventHierarchy" Type="nvarchar" MaxLength="100" />
+          <Property Name="betDelay" Type="nvarchar" MaxLength="100" />
+          <Property Name="runners" Type="int" />
+          <Property Name="winners" Type="int" />
+          <Property Name="bspMarket" Type="bit" />
+          <Property Name="turningInPlay" Type="bit" />
+          <Property Name="isHot" Type="bit" Nullable="false" />
+          <Property Name="interval" Type="int" Nullable="false" />
+          <Property Name="country" Type="nvarchar" MaxLength="100" />
+          <Property Name="marketStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PriceTrack">
+          <Key>
+            <PropertyRef Name="fk_market" />
+            <PropertyRef Name="fk_selection" />
+            <PropertyRef Name="priceDate" />
+            <PropertyRef Name="isLay" />
+          </Key>
+          <Property Name="fk_market" Type="int" Nullable="false" />
+          <Property Name="fk_selection" Type="int" Nullable="false" />
+          <Property Name="priceDate" Type="datetime" Nullable="false" />
+          <Property Name="isLay" Type="bit" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Selections">
+          <Key>
+            <PropertyRef Name="marketId" />
+            <PropertyRef Name="selectionId" />
+          </Key>
+          <Property Name="marketId" Type="int" Nullable="false" />
+          <Property Name="selectionId" Type="int" Nullable="false" />
+          <Property Name="totalAmoutMatched" Type="float" />
+          <Property Name="lastPriceMatched" Type="float" />
+          <Property Name="tracked" Type="bit" Nullable="false" />
+          <Property Name="position" Type="int" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="botfairModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="botfairEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bets" EntityType="botfairModel.Bet" />
+          <EntitySet Name="Configurations" EntityType="botfairModel.Configuration" />
+          <EntitySet Name="EventTypes" EntityType="botfairModel.EventType" />
+          <EntitySet Name="Logs" EntityType="botfairModel.Log" />
+          <EntitySet Name="Markets" EntityType="botfairModel.Market" />
+          <EntitySet Name="PriceTracks" EntityType="botfairModel.PriceTrack" />
+          <EntitySet Name="Selections" EntityType="botfairModel.Selection" />
+        </EntityContainer>
+        <EntityType Name="Bet">
+          <Key>
+            <PropertyRef Name="fk_market" />
+            <PropertyRef Name="fk_selection" />
+            <PropertyRef Name="isLay" />
+          </Key>
+          <Property Name="fk_market" Type="Int32" Nullable="false" />
+          <Property Name="fk_selection" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Double" />
+          <Property Name="isLay" Type="Boolean" Nullable="false" />
+          <Property Name="firstPrice" Type="Double" />
+          <Property Name="currentPrice" Type="Double" />
+          <Property Name="pricePosted" Type="Double" />
+          <Property Name="sizePosted" Type="Double" />
+          <Property Name="datePosted" Type="DateTime" />
+          <Property Name="errorCode" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="betFairId" Type="Int64" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hotMarketsSeconds" Type="Int32" Nullable="false" />
+          <Property Name="percentage" Type="Double" Nullable="false" />
+          <Property Name="riskValue" Type="Int32" Nullable="false" />
+          <Property Name="newMarketsPeriod" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="message" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="eventId" Type="Int32" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Market">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="menuPath" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Name="totalAmount" Type="Double" />
+          <Property Name="eventDate" Type="DateTime" />
+          <Property Name="type" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="eventType" Type="Int32" Nullable="false" />
+          <Property Name="eventHierarchy" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="betDelay" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="runners" Type="Int32" />
+          <Property Name="winners" Type="Int32" />
+          <Property Name="bspMarket" Type="Boolean" />
+          <Property Name="turningInPlay" Type="Boolean" />
+          <Property Name="isHot" Type="Boolean" Nullable="false" />
+          <Property Name="interval" Type="Int32" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="marketStatus" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PriceTrack">
+          <Key>
+            <PropertyRef Name="fk_market" />
+            <PropertyRef Name="fk_selection" />
+            <PropertyRef Name="priceDate" />
+            <PropertyRef Name="isLay" />
+          </Key>
+          <Property Name="fk_market" Type="Int32" Nullable="false" />
+          <Property Name="fk_selection" Type="Int32" Nullable="false" />
+          <Property Name="priceDate" Type="DateTime" Nullable="false" />
+          <Property Name="isLay" Type="Boolean" Nullable="false" />
+          <Property Name="price" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Selection">
+          <Key>
+            <PropertyRef Name="marketId" />
+            <PropertyRef Name="selectionId" />
+          </Key>
+          <Property Name="marketId" Type="Int32" Nullable="false" />
+          <Property Name="selectionId" Type="Int32" Nullable="false" />
+          <Property Name="totalAmoutMatched" Type="Double" />
+          <Property Name="lastPriceMatched" Type="Double" />
+          <Property Name="tracked" Type="Boolean" Nullable="false" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="botfairModelStoreContainer" CdmEntityContainer="botfairEntities">
+          <EntitySetMapping Name="Bets"><EntityTypeMapping TypeName="botfairModel.Bet"><MappingFragment StoreEntitySet="Bets">
+            <ScalarProperty Name="fk_market" ColumnName="fk_market" />
+            <ScalarProperty Name="fk_selection" ColumnName="fk_selection" />
+            <ScalarProperty Name="amount" ColumnName="amount" />
+            <ScalarProperty Name="isLay" ColumnName="isLay" />
+            <ScalarProperty Name="firstPrice" ColumnName="firstPrice" />
+            <ScalarProperty Name="currentPrice" ColumnName="currentPrice" />
+            <ScalarProperty Name="pricePosted" ColumnName="pricePosted" />
+            <ScalarProperty Name="sizePosted" ColumnName="sizePosted" />
+            <ScalarProperty Name="datePosted" ColumnName="datePosted" />
+            <ScalarProperty Name="errorCode" ColumnName="errorCode" />
+            <ScalarProperty Name="betFairId" ColumnName="betFairId" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Configurations"><EntityTypeMapping TypeName="botfairModel.Configuration"><MappingFragment StoreEntitySet="Configuration">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="hotMarketsSeconds" ColumnName="hotMarketsSeconds" />
+            <ScalarProperty Name="percentage" ColumnName="percentage" />
+            <ScalarProperty Name="riskValue" ColumnName="riskValue" />
+            <ScalarProperty Name="newMarketsPeriod" ColumnName="newMarketsPeriod" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="EventTypes"><EntityTypeMapping TypeName="botfairModel.EventType"><MappingFragment StoreEntitySet="EventTypes">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Logs"><EntityTypeMapping TypeName="botfairModel.Log"><MappingFragment StoreEntitySet="Log">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="type" ColumnName="type" />
+            <ScalarProperty Name="message" ColumnName="message" />
+            <ScalarProperty Name="eventId" ColumnName="eventId" />
+            <ScalarProperty Name="date" ColumnName="date" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Markets"><EntityTypeMapping TypeName="botfairModel.Market"><MappingFragment StoreEntitySet="Markets">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="menuPath" ColumnName="menuPath" />
+            <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+            <ScalarProperty Name="eventDate" ColumnName="eventDate" />
+            <ScalarProperty Name="type" ColumnName="type" />
+            <ScalarProperty Name="eventType" ColumnName="eventType" />
+            <ScalarProperty Name="eventHierarchy" ColumnName="eventHierarchy" />
+            <ScalarProperty Name="betDelay" ColumnName="betDelay" />
+            <ScalarProperty Name="runners" ColumnName="runners" />
+            <ScalarProperty Name="winners" ColumnName="winners" />
+            <ScalarProperty Name="bspMarket" ColumnName="bspMarket" />
+            <ScalarProperty Name="turningInPlay" ColumnName="turningInPlay" />
+            <ScalarProperty Name="isHot" ColumnName="isHot" />
+            <ScalarProperty Name="interval" ColumnName="interval" />
+            <ScalarProperty Name="country" ColumnName="country" />
+            <ScalarProperty Name="marketStatus" ColumnName="marketStatus" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PriceTracks"><EntityTypeMapping TypeName="botfairModel.PriceTrack"><MappingFragment StoreEntitySet="PriceTrack">
+            <ScalarProperty Name="fk_market" ColumnName="fk_market" />
+            <ScalarProperty Name="fk_selection" ColumnName="fk_selection" />
+            <ScalarProperty Name="priceDate" ColumnName="priceDate" />
+            <ScalarProperty Name="isLay" ColumnName="isLay" />
+            <ScalarProperty Name="price" ColumnName="price" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Selections"><EntityTypeMapping TypeName="botfairModel.Selection"><MappingFragment StoreEntitySet="Selections">
+            <ScalarProperty Name="marketId" ColumnName="marketId" />
+            <ScalarProperty Name="selectionId" ColumnName="selectionId" />
+            <ScalarProperty Name="totalAmoutMatched" ColumnName="totalAmoutMatched" />
+            <ScalarProperty Name="lastPriceMatched" ColumnName="lastPriceMatched" />
+            <ScalarProperty Name="tracked" ColumnName="tracked" />
+            <ScalarProperty Name="position" ColumnName="position" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="BotModel">
+        <EntityTypeShape EntityType="botfairModel.Bet" Width="1.5" PointX="0.75" PointY="0.75" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="botfairModel.Configuration" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="botfairModel.EventType" Width="1.5" PointX="2.75" PointY="3.75" Height="1.4033821614583322" IsExpanded="true" />
+        <EntityTypeShape EntityType="botfairModel.Log" Width="1.5" PointX="4.75" PointY="0.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="botfairModel.Market" Width="1.5" PointX="4.75" PointY="3.75" Height="4.2879036458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="botfairModel.PriceTrack" Width="1.5" PointX="6.75" PointY="0.75" Height="1.9802864583333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="botfairModel.Selection" Width="1.5" PointX="0.75" PointY="6.75" Height="2.1725878906249996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

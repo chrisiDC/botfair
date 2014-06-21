@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ed2364e0-e13a-4a58-bfb9-033b66fd5096" name="worker@GAMER-PC 2012-10-04 16:29:17" runUser="gamer-PC\worker" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="5a9105b8-19b3-4ba8-a2dc-d16337b10c0f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="worker_GAMER-PC 2012-10-04 16_29_17">
+      <DeploymentItem filename="C:\programming\Tools\bin\Debug\Tools.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-10-04T16:29:17.5223652+02:00" queuing="2012-10-04T16:29:18.1734025+02:00" start="2012-10-04T16:29:18.2264055+02:00" finish="2012-10-04T16:29:45.0629404+02:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="GAMER-PC" outcome="Error" timestamp="2012-10-04T16:29:45.0619404+02:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="c:\programming\toolstest\bin\debug\toolstest.dll" id="b18ff913-e74e-5351-4f54-61892b65d5f2">
+      <Execution id="91a10911-8544-476e-b890-7443a1cec6ee" />
+      <TestMethod codeBase="C:/programming/ToolsTest/bin/Debug/ToolsTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ToolsTest.ExtensionsTest, ToolsTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b18ff913-e74e-5351-4f54-61892b65d5f2" executionId="91a10911-8544-476e-b890-7443a1cec6ee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="91a10911-8544-476e-b890-7443a1cec6ee" testId="b18ff913-e74e-5351-4f54-61892b65d5f2" testName="TestMethod1" computerName="GAMER-PC" duration="00:00:26.8065332" startTime="2012-10-04T16:29:18.2564072+02:00" endTime="2012-10-04T16:29:45.0629404+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="91a10911-8544-476e-b890-7443a1cec6ee">
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -1,0 +1,61 @@
+﻿System.NullReferenceException: Object reference not set to an instance of an object.     
+at BotFair.BusinessLayer.Markets.<InsertSelectionsIntoCache>(MarketsRow marketRow) in C:\programming\botfair2\BotFair.BusinessLayer\Markets.cs:line 412   
+  at BotFair.BusinessLayer.Markets.<InsertSelectionsIntoCache>c__Binding.Invoke(Object& instance, Arguments arguments, Object aspectArgs) in :line 0    
+   at PostSharp.Aspects.Internals.MethodInterceptionArgsImpl`1.Invoke(Arguments arguments)     at Tools.Aspects.ReadWriterLock.OnInvoke(MethodInterceptionArgs args)   
+     at BotFair.BusinessLayer.Markets.InsertSelectionsIntoCache(MarketsRow marketRow) in :line 0    
+	  at BotFair.BusinessLayer.Markets.<SetHotMarkets_Thread>() in C:\programming\botfair2\BotFair.BusinessLayer\Markets.cs:line 199   
+	    at BotFair.BusinessLayer.Markets.<SetHotMarkets_Thread>c__Binding.Invoke(Object& instance, Arguments arguments, Object aspectArgs) in :line 0   
+		  at PostSharp.Aspects.Internals.MethodInterceptionArgsImpl.Invoke(Arguments arguments)     at Tools.Aspects.ReadWriterLock.OnInvoke(MethodInterceptionArgs args)   
+		    at BotFair.BusinessLayer.Markets.SetHotMarkets_Thread() in :line 0     at BotFair.Program.RunThread(Object parameters) in C:\programming\botfair2\Bot\Program.cs:line 279
+
+
+
+delete from bets where fk_market > 0
+delete from Log where id > 0
+delete from Markets where id > 0
+delete from PriceTrack where fk_market > 0
+delete from Selections where selectionId > 0
+GRANT EXECUTE ON getdatacache TO botfair;
+
+	System.InvalidOperationException: Sequence contains no elements at System.Linq.Enumerable.First[TSource](IEnumerable`1 source) at BotFair.BetFairProxy.TrackPrices() in C:\programming\botfair\Bot\BetFairProxy.cs:line 291 at BotFair.Program.RunThread(Object parameters) in C:\programming\botfair\Bot\Program.cs:line 315#
+
+
+
+aspnet_regsql.exe -E -S sp2010_db -A mr -d MembershipDB 
+
+
+
+dvanced user management is a scenario that addresses Windows Vista administrators. In the Search box of the Start Menu enter "cmd" and then hit enter. 
+In the Command Prompt window you will have to type "control userpasswords2." This'll cause Windows Vista UAC to ask for elevated privileges and then to display a User Accounts panel.
+HKEY
+
+
+_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\5.0\User Agent\Post Platform
+
+http://www.microsoft.com/downloads/en/details.aspx?FamilyID=9cfb2d51-5ff4-4491-b0e5-b386f32c0992&displaylang=en
+
+http://txodds.com/
+
+
+
+
+
+BotFair.exe Error: 0 : System.NullReferenceException: Der Objektverweis wurde nicht auf eine Objektinstanz festgelegt.
+   bei System.Data.DataTable.RecordChanged(Int32 record)
+   bei System.Data.DataRow.RowErrorChanged()
+   bei System.Data.DataRow.set_RowError(String value)
+   bei System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
+   bei System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
+   bei System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
+   bei BotFair.DataLayerTableAdapters.MarketsTableAdapter.Update(MarketsDataTable dataTable)
+   bei BotFair.Cache.CommitMarkets()
+   bei BotFair.BetEngine.Run()
+   bei BotFair.Program.RunThread(Object parameters)
+   bei System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   bei System.Threading.ExecutionContext.runTryCode(Object userData)
+   bei System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   bei System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   bei System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean ignoreSyncCtx)
+   bei System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   bei System.Threading.ThreadHelper.ThreadStart(Object obj)
+    DateTime=2011-05-15T16:24:34.7040252Z

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="f51c01ff-fd8d-4cb7-8afb-dd5f47b98455" name="worker@GAMER-PC 2012-10-04 16:30:11" runUser="gamer-PC\worker" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="5a9105b8-19b3-4ba8-a2dc-d16337b10c0f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="worker_GAMER-PC 2012-10-04 16_30_11">
+      <DeploymentItem filename="C:\programming\Tools\bin\Debug\Tools.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-10-04T16:30:11.2314372+02:00" queuing="2012-10-04T16:30:11.4554500+02:00" start="2012-10-04T16:30:11.4844517+02:00" finish="2012-10-04T16:30:11.7234653+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="c:\programming\toolstest\bin\debug\toolstest.dll" id="b18ff913-e74e-5351-4f54-61892b65d5f2">
+      <Execution id="af3c299d-51b7-4ae3-939a-b1004a562249" />
+      <TestMethod codeBase="C:/programming/ToolsTest/bin/Debug/ToolsTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ToolsTest.ExtensionsTest, ToolsTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b18ff913-e74e-5351-4f54-61892b65d5f2" executionId="af3c299d-51b7-4ae3-939a-b1004a562249" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="af3c299d-51b7-4ae3-939a-b1004a562249" testId="b18ff913-e74e-5351-4f54-61892b65d5f2" testName="TestMethod1" computerName="GAMER-PC" duration="00:00:00.0144413" startTime="2012-10-04T16:30:11.4934522+02:00" endTime="2012-10-04T16:30:11.7074644+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="af3c299d-51b7-4ae3-939a-b1004a562249">
+    </UnitTestResult>
+  </Results>
+</TestRun>

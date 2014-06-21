@@ -1,0 +1,77 @@
+﻿* use logger lib
+
+
+* scannew markets: retrieve from now or latest active market in db
+	updte existing: retrieve only active markets in cache
+* resolve startup problem with existing active markets in db
+
+* market ids unique????
+
+* all SYNC to datalayer?
+
+* startup: load markets >= now
+
+* threadstatic?
+
+* refactor DataLayer/Cache
+
+* refactir "RUN" in Prices
+
+* cleanup thread
+
+maybe also: ReaderWriterLockSlim 
+
+
+System.TimeoutException: The HTTP request to 'https://api.betfair.com/global/v3/BFGlobalService' has exceeded the allotted timeout of 00:00:00. The time allotted to this operation may have been a portion of a longer timeout.     at System.ServiceModel.Channels.HttpChannelUtilities.SetRequestTimeout(HttpWebRequest request, TimeSpan timeout)     at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)     at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+startet automatisch wieder???
+
+remove market data was empty log
+getmarketinfo: no session!
+
+log manual/automatic stop /start
+
+start bot when starting .exe
+
+corrupted thread/need to shutdown: check if its ok(exe restarted?)
+
+System.Net.WebException: The underlying connection was closed: A connection that was expected to be kept alive was closed by the server. ---> System.IO.IOException: Unable to read data from the transport connection: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond     at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)     at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)     --- End of inner exception stack trace ---     at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)     at System.Net.FixedSizeReader.ReadPacket(Byte[] buffer, Int32 offset, Int32 count)     at System.Net.Security._SslStream.StartFrameHeader(Byte[] buffer, Int32 offset, Int32 count, AsyncProtocolRequest asyncRequest)     at System.Net.Security._SslStream.StartReading(Byte[] buffer, Int32 offset, Int32 count, AsyncProtocolRequest asyncRequest)     at System.Net.Security._SslStream.ProcessRead(Byte[] buffer, Int32 offset, Int32 count, AsyncProtocolRequest asyncRequest)     at System.Net.TlsStream.Read(Byte[] buffer, Int32 offset, Int32 size)     at System.Net.PooledStream.Read(Byte[] buffer, Int32 offset, Int32 size)     at System.Net.Connection.SyncRead(HttpWebRequest request, Boolean userRetrievedStream, Boolean probeRead)     --- End of inner exception stack trace ---     at System.Net.HttpWebRequest.GetResponse()     at System.ServiceModel.Channels.HttpChannelFactory.HttpRequestChannel.HttpChannelRequest.WaitForReply(TimeSpan timeout)
+
+--> leads to corrupted thread
+
+"stopping bot" nach bot state = "stopped" darf nnicht angenommen werden! args) in C:\programming\BotFair\Bot\Program.cs:line 47
+
+API ERROR / EXCEEDED THROTTLE ( on GetMarketInfo)
+
+* fault emails funktionieren nicht
+
+* laden von daten: wiso immer alle daten aus der db holen beim app start?
+
+* markets EINMAL scannen, nicht immer wieder die selben
+* veraltete markets aus cache entfernen
+
+
+
+* betengine: wenn mehrere bestselections, dann bet nicht placen(beim nächsten interval dann hoffentlich)s
+* if (price > 20.00) throw new Exception("invalid price"): NUR die eine bet stoppen, nicht den bot
+
+
+* probleme bei werte aus getAllMarket(MapMarket)
+* boot automatisch neu starten bei applikations fehler
+* manchmal 1 wette ok , 1 nicht aber selber error code
+* bet minimum size 2 pfund
+* stop wette:
+	nachdem lay und back gesetzt wurde: 
+		lay quote weiterverfolgen(bestimmtes interval);
+		wenn aktuelle lay quote bestimmtes delta erreicht, dann neue back wette setzen;
+
+		ende der weiterverfolgung: 
+			*neue back wette wird gesetzt
+			*entweder die 1.back wette angenommen oder spiel aus
+
+* auswertung mit "GetBEt"
+* error handling: global: trace message + console output
+* hotmarketsminutes->hotmarketsseconds
+
+
+
+System.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)     at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)     at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()     at System.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, Boolean encrypt, Boolean trustServerCert, Boolean integratedSecurity)     at System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, SqlConnection owningObject)     at System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, TimeoutTimer timeout)     at System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, TimeoutTimer timeout, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)     at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)     at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)     at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)     at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)     at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)     at System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)     at System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)     at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)     at System.Data.SqlClient.SqlConnection.Open()     at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)     at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)     at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)     at BotFair.DataLayerTableAdapters.MarketsTableAdapter.Fill(MarketsDataTable dataTable) in C:\programming\BotFair\Bot\DataLayer.Designer.cs:line 5890     at BotFair.Program.InitApplication() in C:\programming\BotFair\Bot\Program.cs:line 178     at BotFair.Program.Startup() in C:\programming\BotFair\Bot\Program.cs:line 132     at BotFair.Program.CheckAppHealthState() in C:\programming\BotFair\Bot\Program.cs:line 303

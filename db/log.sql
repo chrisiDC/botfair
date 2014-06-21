@@ -1,0 +1,14 @@
+
+CREATE TABLE [dbo].[Log](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[type] [nvarchar](255) NOT NULL,
+	[message] [ntext] NULL,
+	[eventId] [int] NULL,
+	[date] [datetime] NOT NULL,
+ CONSTRAINT [PK_Log] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+

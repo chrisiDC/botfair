@@ -1,0 +1,231 @@
+﻿<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:n2="http://www.betfair.com/publicapi/types/exchange/v5/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <n:getMarketPricesResponse xmlns:n="http://www.betfair.com/publicapi/v5/BFExchangeService/">
+      <n:Result xsi:type="n2:GetMarketPricesResp">
+        <header xsi:type="n2:APIResponseHeader">
+          <errorCode xsi:type="n2:APIErrorEnum">OK</errorCode>
+          <minorErrorCode xsi:nil="1"/>
+          <sessionToken xsi:type="xsd:string">W2KSl7U0ex6mBlqrdlsBLtkSXrA/94WxNtpGqaTRXpA=</sessionToken>
+          <timestamp xsi:type="xsd:dateTime">2011-05-13T10:49:35.682Z</timestamp>
+        </header>
+        <errorCode xsi:type="n2:GetMarketPricesErrorEnum">OK</errorCode>
+        <marketPrices xsi:type="n2:MarketPrices">
+          <currencyCode xsi:type="xsd:string">EUR</currencyCode>
+          <delay xsi:type="xsd:int">0</delay>
+          <discountAllowed xsi:type="xsd:boolean">true</discountAllowed>
+          <lastRefresh xsi:type="xsd:long">1305283774765</lastRefresh>
+          <marketBaseRate xsi:type="xsd:float">5.0</marketBaseRate>
+          <marketId xsi:type="xsd:int">102801719</marketId>
+          <marketInfo xsi:type="xsd:string">NR: (UKT) &lt;br>5. Master Of Ages(15.2%,10:33)</marketInfo>
+          <removedRunners xsi:type="xsd:string">Master Of Ages,9.33,15.2;</removedRunners>
+          <marketStatus xsi:type="n2:MarketStatusEnum">ACTIVE</marketStatus>
+          <numberOfWinners xsi:type="xsd:int">1</numberOfWinners>
+          <bspMarket xsi:type="xsd:boolean">true</bspMarket>
+          <runnerPrices xsi:type="n2:ArrayOfRunnerPrices">
+            <n2:RunnerPrices xsi:type="n2:RunnerPrices">
+              <asianLineId xsi:type="xsd:int">0</asianLineId>
+              <bestPricesToBack xsi:type="n2:ArrayOfPrice">
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">57.08</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">1</depth>
+                  <price xsi:type="xsd:double">1.68</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">54.01</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">2</depth>
+                  <price xsi:type="xsd:double">1.67</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">97.03</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">3</depth>
+                  <price xsi:type="xsd:double">1.63</price>
+                </n2:Price>
+              </bestPricesToBack>
+              <bestPricesToLay xsi:type="n2:ArrayOfPrice">
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">2.28</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">B</betType>
+                  <depth xsi:type="xsd:int">1</depth>
+                  <price xsi:type="xsd:double">1.71</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">883.59</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">B</betType>
+                  <depth xsi:type="xsd:int">2</depth>
+                  <price xsi:type="xsd:double">1.72</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">2.28</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">B</betType>
+                  <depth xsi:type="xsd:int">3</depth>
+                  <price xsi:type="xsd:double">1.73</price>
+                </n2:Price>
+              </bestPricesToLay>
+              <handicap xsi:type="xsd:double">0.0</handicap>
+              <lastPriceMatched xsi:type="xsd:double">1.72</lastPriceMatched>
+              <reductionFactor xsi:type="xsd:double">54.7</reductionFactor>
+              <selectionId xsi:type="xsd:int">5539190</selectionId>
+              <sortOrder xsi:type="xsd:int">0</sortOrder>
+              <totalAmountMatched xsi:type="xsd:double">9395.3</totalAmountMatched>
+              <vacant xsi:type="xsd:boolean">false</vacant>
+              <farBSP xsi:type="xsd:double">1.7</farBSP>
+              <nearBSP xsi:type="xsd:double">1.7</nearBSP>
+              <actualBSP xsi:type="xsd:double">0.0</actualBSP>
+            </n2:RunnerPrices>
+            <n2:RunnerPrices xsi:type="n2:RunnerPrices">
+              <asianLineId xsi:type="xsd:int">0</asianLineId>
+              <bestPricesToBack xsi:type="n2:ArrayOfPrice">
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">5.7</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">1</depth>
+                  <price xsi:type="xsd:double">3.2</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">34.02</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">2</depth>
+                  <price xsi:type="xsd:double">3.15</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">53.65</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">3</depth>
+                  <price xsi:type="xsd:double">3.1</price>
+                </n2:Price>
+              </bestPricesToBack>
+              <bestPricesToLay xsi:type="n2:ArrayOfPrice">
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">29.69</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">B</betType>
+                  <depth xsi:type="xsd:int">1</depth>
+                  <price xsi:type="xsd:double">3.7</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">42.92</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">B</betType>
+                  <depth xsi:type="xsd:int">2</depth>
+                  <price xsi:type="xsd:double">3.8</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">5.7</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">B</betType>
+                  <depth xsi:type="xsd:int">3</depth>
+                  <price xsi:type="xsd:double">3.85</price>
+                </n2:Price>
+              </bestPricesToLay>
+              <handicap xsi:type="xsd:double">0.0</handicap>
+              <lastPriceMatched xsi:type="xsd:double">3.1</lastPriceMatched>
+              <reductionFactor xsi:type="xsd:double">30.8</reductionFactor>
+              <selectionId xsi:type="xsd:int">5433907</selectionId>
+              <sortOrder xsi:type="xsd:int">1</sortOrder>
+              <totalAmountMatched xsi:type="xsd:double">1621.05</totalAmountMatched>
+              <vacant xsi:type="xsd:boolean">false</vacant>
+              <farBSP xsi:type="xsd:double">1.7</farBSP>
+              <nearBSP xsi:type="xsd:double">2.9627175258841447</nearBSP>
+              <actualBSP xsi:type="xsd:double">0.0</actualBSP>
+            </n2:RunnerPrices>
+            <n2:RunnerPrices xsi:type="n2:RunnerPrices">
+              <asianLineId xsi:type="xsd:int">0</asianLineId>
+              <bestPricesToBack xsi:type="n2:ArrayOfPrice">
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">13.36</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">1</depth>
+                  <price xsi:type="xsd:double">15.0</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">37.67</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">2</depth>
+                  <price xsi:type="xsd:double">12.0</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">20.75</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">3</depth>
+                  <price xsi:type="xsd:double">10.5</price>
+                </n2:Price>
+              </bestPricesToBack>
+              <bestPricesToLay xsi:type="n2:ArrayOfPrice">
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">4.38</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">B</betType>
+                  <depth xsi:type="xsd:int">1</depth>
+                  <price xsi:type="xsd:double">34.0</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">3.5</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">B</betType>
+                  <depth xsi:type="xsd:int">2</depth>
+                  <price xsi:type="xsd:double">36.0</price>
+                </n2:Price>
+              </bestPricesToLay>
+              <handicap xsi:type="xsd:double">0.0</handicap>
+              <lastPriceMatched xsi:type="xsd:double">75.0</lastPriceMatched>
+              <reductionFactor xsi:type="xsd:double">7.6</reductionFactor>
+              <selectionId xsi:type="xsd:int">5539191</selectionId>
+              <sortOrder xsi:type="xsd:int">2</sortOrder>
+              <totalAmountMatched xsi:type="xsd:double">51.3</totalAmountMatched>
+              <vacant xsi:type="xsd:boolean">false</vacant>
+              <farBSP xsi:type="xsd:double">1.7208333333333332</farBSP>
+              <nearBSP xsi:type="xsd:double">12.540290148260537</nearBSP>
+              <actualBSP xsi:type="xsd:double">0.0</actualBSP>
+            </n2:RunnerPrices>
+            <n2:RunnerPrices xsi:type="n2:RunnerPrices">
+              <asianLineId xsi:type="xsd:int">0</asianLineId>
+              <bestPricesToBack xsi:type="n2:ArrayOfPrice">
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">5.34</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">1</depth>
+                  <price xsi:type="xsd:double">12.0</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">14.96</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">2</depth>
+                  <price xsi:type="xsd:double">10.5</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">45.66</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">L</betType>
+                  <depth xsi:type="xsd:int">3</depth>
+                  <price xsi:type="xsd:double">9.0</price>
+                </n2:Price>
+              </bestPricesToBack>
+              <bestPricesToLay xsi:type="n2:ArrayOfPrice">
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">8.25</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">B</betType>
+                  <depth xsi:type="xsd:int">1</depth>
+                  <price xsi:type="xsd:double">75.0</price>
+                </n2:Price>
+                <n2:Price xsi:type="n2:Price">
+                  <amountAvailable xsi:type="xsd:double">3.82</amountAvailable>
+                  <betType xsi:type="n2:BetTypeEnum">B</betType>
+                  <depth xsi:type="xsd:int">2</depth>
+                  <price xsi:type="xsd:double">1000.0</price>
+                </n2:Price>
+              </bestPricesToLay>
+              <handicap xsi:type="xsd:double">0.0</handicap>
+              <lastPriceMatched xsi:type="xsd:double">12.5</lastPriceMatched>
+              <reductionFactor xsi:type="xsd:double">6.7</reductionFactor>
+              <selectionId xsi:type="xsd:int">5539192</selectionId>
+              <sortOrder xsi:type="xsd:int">3</sortOrder>
+              <totalAmountMatched xsi:type="xsd:double">277.13</totalAmountMatched>
+              <vacant xsi:type="xsd:boolean">false</vacant>
+              <farBSP xsi:type="xsd:double">3.82</farBSP>
+              <nearBSP xsi:type="xsd:double">10.149257413</nearBSP>
+              <actualBSP xsi:type="xsd:double">0.0</actualBSP>
+            </n2:RunnerPrices>
+          </runnerPrices>
+        </marketPrices>
+        <minorErrorCode xsi:nil="1"/>
+      </n:Result>
+    </n:getMarketPricesResponse>
+  </soap:Body>
+</soap:Envelope>
