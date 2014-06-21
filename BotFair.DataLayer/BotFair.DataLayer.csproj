@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80FBA896-BEC1-4B60-B921-B03B471F98CE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BotFair.DataLayer</RootNamespace>
+    <AssemblyName>BotFair.DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BotDataSet.cs">
+      <DependentUpon>BotDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BotDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BotDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Cache.cs" />
+    <Compile Include="CommitSync.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BetFairExchange\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BotFairGlobal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceDataMapper.cs" />
+    <Compile Include="Sync.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="BotDataSet.xsc">
+      <DependentUpon>BotDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BotDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BotDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BotDataSet.xss">
+      <DependentUpon>BotDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\BetFairExchange\BFExchangeService.wsdl" />
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.CancelBetsByMarketResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.CancelBetsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetAccountFundsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetAccountStatementResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetAllMarketsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetBetHistoryResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetBetLiteResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetBetMatchesLiteResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetBetResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetCompleteMarketPricesCompressedResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetCouponResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetCurrentBetsLiteResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetCurrentBetsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetDetailedAvailableMktDepthResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetInPlayMarketsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetMarketInfoResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetMarketPricesCompressedResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetMarketPricesResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetMarketProfitAndLossResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetMarketResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetMarketTradedVolumeCompressedResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetMarketTradedVolumeResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetMUBetsLiteResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetMUBetsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetPrivateMarketsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetSilksResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.GetSilksV2Resp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.HeartbeatResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.PlaceBetsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BetFairExchange\BotFair.DataLayer.BetFairExchange.UpdateBetsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BFGlobalService.wsdl" />
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.AddPaymentCardResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.ConvertCurrencyResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.CreateAccountResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.DeletePaymentCardResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.DepositFromPaymentCardResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.ForgotPasswordResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.GetCurrenciesResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.GetCurrenciesV2Resp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.GetEventsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.GetEventTypesResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.GetPaymentCardResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.GetSubscriptionInfoResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.KeepAliveResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.LoginResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.LogoutResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.ModifyPasswordResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.ModifyProfileResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.RetrieveLIMBMessageResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.SelfExcludeResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.SetChatNameResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.SubmitLIMBMessageResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.TransferFundsResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.UpdatePaymentCardResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.ViewProfileResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.ViewProfileV2Resp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.ViewReferAndEarnResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.WithdrawByBankTransferResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BotFairGlobal\BotFair.DataLayer.BotFairGlobal.WithdrawToPaymentCardResp.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BetFairExchange\" />
+    <WCFMetadataStorage Include="Service References\BotFairGlobal\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BotFairGlobal\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BotFairGlobal\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BotFairGlobal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BetFairExchange\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BetFairExchange\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BetFairExchange\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
